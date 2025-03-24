@@ -158,4 +158,4 @@ The load balancer is configured to use the round-robin algorithm, which distribu
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the WTFPL License.
