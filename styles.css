@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
   --primary: #2d333b;
   --secondary: #22272e;
@@ -86,10 +86,6 @@ h1 {
   transition: var(--transition);
 }
 
-.theme-toggle:hover {
-  transform: scale(1.05);
-}
-
 .search-container {
   display: flex;
   justify-content: center;
@@ -138,6 +134,45 @@ h1 {
   background-color: var(--button-hover);
 }
 
+.error-message {
+  display: none;
+  background-color: var(--error);
+  color: white;
+  padding: 16px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: 24px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.repos-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.repos-filter {
+  background-color: var(--card-bg);
+  border: none;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-family: "Inter", sans-serif;
+  outline: none;
+}
+
+.filter-label {
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+.no-repos-message {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 20px;
+}
+
 #profile-section,
 #repos-section {
   opacity: 0;
@@ -151,28 +186,6 @@ h1 {
   transform: translateY(0);
 }
 
-.error-message {
-  display: none;
-  background-color: var(--error);
-  color: white;
-  padding: 16px;
-  border-radius: var(--border-radius);
-  text-align: center;
-  margin-bottom: 24px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .profile-card {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
@@ -180,19 +193,9 @@ h1 {
   overflow: hidden;
   padding: 32px;
   margin-bottom: 32px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 24px;
-  width: 100%;
 }
 
 .profile-image {
@@ -249,11 +252,6 @@ h1 {
   color: var(--text-secondary);
 }
 
-.repos-header {
-  margin-bottom: 24px;
-  text-align: center;
-}
-
 .repos-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -265,16 +263,9 @@ h1 {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 24px;
-  transition: var(--transition);
-  height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.repo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  height: 100%;
 }
 
 .repo-name {
@@ -300,6 +291,7 @@ h1 {
 .repo-stats {
   display: flex;
   gap: 12px;
+  margin-bottom: 12px;
 }
 
 .repo-stat {
@@ -316,7 +308,10 @@ h1 {
   fill: var(--text-secondary);
 }
 
-/* Skeleton loading animation */
+.loading-container {
+  display: none;
+}
+
 .skeleton {
   background: linear-gradient(
     90deg,
@@ -391,28 +386,9 @@ h1 {
   height: 150px;
 }
 
-.loading-container {
-  display: none;
-}
-
 @media (max-width: 768px) {
-  .container {
-    padding: 24px 0;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  .profile-card {
-    padding: 24px;
-  }
-
-  .profile-stats {
-    gap: 16px;
-  }
-
-  .repos-container {
-    grid-template-columns: 1fr;
+  .repos-filter-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
